@@ -1,7 +1,6 @@
 const exec = require('child_process').exec
 const { ESLint } = require('eslint')
 
-console.log('ok')
 const result = function (command, cb) {
   exec(command, function (err, stdout, stderr) {
     if (err != null) {
