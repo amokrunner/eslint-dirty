@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/amokrunner/eslint-dirty/issues"
   },
-  "homepage": "https://github.com/amokrunner/eslint-dirty#readme"
+  "homepage": "https://github.com/amokrunner/eslint-dirty#readme",
+  "devDependencies": {
+    "eslint": "^8.23.0"
+  }
 }
