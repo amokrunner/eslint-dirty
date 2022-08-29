@@ -22,6 +22,7 @@ function lintDirty (opts = {}) {
     // 2. Lint files.
     let arr = stdout.replace(/\n/g, '').split(' ')
     arr = arr.filter(f => f.includes('.'))
+    arr = arr.filter(f => !f.includes('.json'))
 
     if (arr.length) {
       console.log('Dirty files:')
