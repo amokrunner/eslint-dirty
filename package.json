@@ -2,9 +2,13 @@
   "name": "eslint-dirty",
   "version": "0.0.1",
   "description": "Eslint on only dirty files",
+  "bin": {
+    "eslint-dirty": "./bin/eslint-dirty.js"
+  },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "node bin/eslint-dirty",
+    "lintfix": "node bin/eslint-dirty --fix"
   },
   "repository": {
     "type": "git",
@@ -18,6 +22,7 @@
   },
   "homepage": "https://github.com/amokrunner/eslint-dirty#readme",
   "devDependencies": {
-    "eslint": "^8.23.0"
+    "eslint": "^8.23.0",
+    "eslint-config-standard": "^17.0.0"
   }
 }
