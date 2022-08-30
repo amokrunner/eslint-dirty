@@ -1,5 +1,6 @@
 const exec = require('child_process').exec
 const { ESLint } = require('eslint')
+const fs = require('fs')
 
 const result = function (command, cb) {
   exec(command, function (err, stdout, stderr) {
@@ -23,6 +24,7 @@ function lintDirty (opts = {}) {
     let arr = stdout.replace(/\n/g, '').split(' ')
     arr = arr.filter(f => f.includes('.'))
     arr = arr.filter(f => !f.includes('.json'))
+    arr = arr.filter(f => fs.existsSync(f))
 
     if (arr.length) {
       console.log('Dirty files:')
