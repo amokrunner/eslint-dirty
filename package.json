@@ -1,6 +1,6 @@
 {
   "name": "eslint-dirty",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Eslint on only dirty files",
   "bin": {
     "eslint-dirty": "./bin/eslint-dirty.js"
