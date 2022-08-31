@@ -9,25 +9,23 @@ npm install eslint-dirty --save-dev
 In your package.json file, add a script:
 ```
   "scripts": {
-    "lintdirty": "eslint-dirty",
-    "lintdirtyfix": "eslint-dirty --fix",
+    "lintdirty": "eslint-dirty"
   }
 ```
 From the command line:
 ```
 npm run lintdirty
-npm run lintdirtyfix
+npm run lintdirty -- --fix
+npm run lintdirty -- --commit <commit_or_branch>
+npm run lintdirty -- --fix --commit <commit_or_branch>
 ```
-
 
 ### Without Install:
 From command line, to show lint results:
 ```
 npx eslint-dirty
-```
-
-From command line, to show lint results AND fix them:
-```
 npx eslint-dirty --fix
+npx eslint-dirty --commit <commit_or_branch>
+npx eslint-dirty --fix --commit <commit_or_branch>
 ```
 

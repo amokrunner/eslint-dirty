@@ -17,7 +17,8 @@ const result = function (command, cb) {
 function lintDirty (opts = {}) {
   console.log(`Running eslint-dirty${Object.keys(opts).length ? ' with options:' : '.'}`)
   Object.keys(opts).forEach(k => { console.log(`  - ${k}: ${opts[k]}`) })
-  result('git diff --name-only HEAD | xargs', async (res, stdout, stderr) => {
+  const commit = opts.commit || 'HEAD'
+  result(`git diff --name-only ${commit} | xargs`, async (res, stdout, stderr) => {
     // turn git diff output into array:
     let arr = stdout.replace(/\n/g, '').split(' ')
 
@@ -38,11 +39,14 @@ function lintDirty (opts = {}) {
     }
 
     // run eslint:
-    const eslint = new ESLint(opts)
+    const eslintOpts = {
+      fix: Boolean(opts.fix)
+    }
+    const eslint = new ESLint(eslintOpts)
     const results = await eslint.lintFiles(arr)
 
     // fix, if fixing:
-    if (opts.fix) {
+    if (eslintOpts.fix) {
       await ESLint.outputFixes(results)
     }
 
