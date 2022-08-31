@@ -1,6 +1,5 @@
 # eslint-dirty
-Eslint on only dirty files (relative to git HEAD)
-
+Eslint on only dirty files (using git)
 
 ### With Install:
 ```
@@ -29,3 +28,9 @@ npx eslint-dirty --commit <commit_or_branch>
 npx eslint-dirty --fix --commit <commit_or_branch>
 ```
 
+### Arugments:
+```---fix``` - fixes files (see eslint docs); default: off \
+```---commit <commit_or_branch>``` - relative commit to determine dirty files; default: HEAD
+
+### Notes:
+This was developed and tested in windows cmd environment
